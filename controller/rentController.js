@@ -27,11 +27,13 @@ module.exports.rentBook = async function (req, res) {
         }
       }
     } else {
+      //if book is not found with given id
       if (book == null) {
         return res.status(500).json({
           message: "This book does not exist",
         });
       }
+      //if book is found but is already rented
       return res.status(400).json({
         message: "This book is already rented",
       });
